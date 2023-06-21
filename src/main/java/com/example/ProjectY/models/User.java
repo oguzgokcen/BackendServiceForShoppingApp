@@ -3,7 +3,7 @@ package com.example.ProjectY.models;
 import jakarta.persistence.*;
 
 import java.util.Date;
-
+//USER ENTITY
 @Entity
 @Table(name ="users")
 public class User {
@@ -15,13 +15,16 @@ public class User {
     private String last_name;
     private String email;
     private String password;
+    private String phoneNumber;
 
-    public User(int user_id, String first_name, String last_name, String email, String password) {
+    public User(int user_id, String first_name, String last_name, String email, String password,String phoneNumber) {
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
+
     }
     public User(){}
 
@@ -65,4 +68,11 @@ public class User {
         this.password = password;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

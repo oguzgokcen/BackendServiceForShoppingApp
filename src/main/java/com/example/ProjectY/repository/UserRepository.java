@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+
+// USER REPOSITORY
 public interface UserRepository extends JpaRepository<User,Integer> {
     @Query(value = "SELECT email FROM users WHERE email = :email ", nativeQuery = true)
     List<String> checkUserEmail(@Param("email") String email);
@@ -20,13 +22,4 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     @Query(value = " SELECT * FROM users WHERE email = :email", nativeQuery = true)
     User GetUserDetailsByEmail(@Param("email") String email);
 
-    /*@Transactional
-    @Modifying
-    @Query(value = "INSERT INTO USERS(first_name, last_name, email, password) VALUES(:first_name, :last_name, :email, :password", nativeQuery = true)
-    int registerNewUser(@Param("first_name") String first_name,
-                        @Param("last_name") String last_name,
-                        @Param("email") String email,
-                        @Param("password") String password);
-
-     */
 }

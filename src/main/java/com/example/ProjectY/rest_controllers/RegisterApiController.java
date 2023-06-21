@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// REGISTER API Controller
 @RestController
 @RequestMapping("/api/v1")
 public class RegisterApiController {
@@ -20,7 +21,7 @@ public class RegisterApiController {
 
     @PostMapping("/user/register")
     public ResponseEntity registerNewUser(@RequestBody User user) {
-        if (user.getFirst_name().isEmpty() || user.getLast_name().isEmpty() || user.getEmail().isEmpty() || user.getPassword().isEmpty()) {
+        if (user.getFirst_name().isEmpty() || user.getLast_name().isEmpty() || user.getEmail().isEmpty() || user.getPassword().isEmpty()|| user.getPhoneNumber().isEmpty()) {
             return new ResponseEntity<>("Please Complete all Fields", HttpStatus.BAD_REQUEST);
         }
         String hashed_password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());

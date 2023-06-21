@@ -1,5 +1,6 @@
 package com.example.ProjectY.models;
 
+// LOGIN DATA MODEL
 public class Login {
     private String email;
     private String password;
